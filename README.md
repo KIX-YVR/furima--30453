@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column     | Type    | Options     |
+| ---------- | ------- | ----------- |
+| nickname   | text    | null: false |
+| name       | text    | null: false |
+| name_kana  | text    | null: false |
+| email      | string  | null: false |
+| password   | string  | null: false |
+| birthday   | string  | null: false |
 
-* Ruby version
+## items テーブル
 
-* System dependencies
+| Column                        | Type          | Options     |
+| ----------------------------- | ------------- | ----------- |
+| image                         | ActiveStorage | null: false |
+| items_name                    | text          | null: false |
+| explanation                   | text          | null: false |
+| category                      | ActiveStorage | null: false |
+| condition                     |               | null: false |
+| who_pays_delivery_fee         |               | null: false |
+| from_where_to_send            |               | null: false |
+| how_long_does_it_take_to_send |               | null: false |
+| price                         | string        | null: false |
+| user_id                       | references    | null: false |
 
-* Configuration
+## buying テーブル
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Column           | Type       | Options     |
+| ---------------- | ---------- | ----------- |
+| card_number      | integer    | null: false |
+| card_expire_date |            | null: false |
+| security_code    | integer    | null: false |
+| zip_code         | integer    | null: false |
+| prefecture       |            | null: false |
+| city             | text       | null: false |
+| address_line     | text       | null: false |
+| phone_number     | integer    | null: false |
+| items_id         | references | null: false |
