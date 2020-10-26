@@ -12,8 +12,9 @@
 | email            | string     | null: false |
 | password         | string     | null: false |
 | birthday         | date       | null: false |
-| items            | references | null: false |
-| purchase_info    | references | null: false |
+
+has_many purchase_info table 
+has_many items table
 
 ## items テーブル
 
@@ -28,8 +29,10 @@
 | how_long_does_it_take_to_send_id | integer       | null: false |
 | price                            | integer       | null: false |
 | user                             | references    | null: false |
-| buying                           | references    | null: false |
-| purchase_info                    | references    | null: false |
+
+belongs_to user table
+has_many purchase_info table
+has_one buying table
 
 ## buying テーブル
 
@@ -40,7 +43,9 @@
 | city             | string     | null: false |
 | address_line     | string     | null: false |
 | phone_number     | string     | null: false |
-| items            | references | null: false |
+| purchase_info    | references | null: false |
+
+belongs_to items table
 
 ##  purchase_infoテーブル
 
@@ -48,3 +53,6 @@
 | -------- | ---------- | ----------- |
 | user     | references | null: false |
 | items    | references | null: false |
+
+belongs_to user table
+belongs_to items table
