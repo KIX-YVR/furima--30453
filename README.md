@@ -30,8 +30,8 @@ has_many :items
 | price                            | integer       | null: false |
 | user                             | references    | null: false, foreign_key: true |
 
-belongs_to :users
-has_many :purchase_infos 
+belongs_to :user
+has_one :purchase_info 
 
 ## addresses テーブル
 
@@ -54,6 +54,6 @@ belongs_to :purchase_infos
 | user     | references | null: false, foreign_key: true |
 | item     | references | null: false, foreign_key: true |
 
-belongs_to :users 
-belongs_to :items 
-has_one :addresses
+belongs_to :user 
+belongs_to :item 
+has_one :address
