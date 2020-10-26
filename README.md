@@ -42,6 +42,7 @@ has_one buying table
 | prefecture_id    | integer    | null: false |
 | city             | string     | null: false |
 | address_line     | string     | null: false |
+| building_name    | string     |             |
 | phone_number     | string     | null: false |
 | purchase_info    | references | null: false |
 
