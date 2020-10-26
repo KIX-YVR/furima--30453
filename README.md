@@ -45,7 +45,7 @@ has_one :purchase_info
 | phone_number     | string     | null: false                    |
 | purchase_info    | references | null: false, foreign_key: true |
 
-belongs_to :purchase_infos
+belongs_to :purchase_info
 
 ##  purchase_infosテーブル
 
