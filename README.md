@@ -13,8 +13,8 @@
 | password         | string     | null: false |
 | birthday         | date       | null: false |
 
-has_many purchase_info table 
-has_many items table
+has_many :purchase_infos
+has_many :items 
 
 ## items テーブル
 
@@ -28,32 +28,32 @@ has_many items table
 | from_where_to_send_id            | integer       | null: false |
 | how_long_does_it_take_to_send_id | integer       | null: false |
 | price                            | integer       | null: false |
-| user                             | references    | null: false |
+| user                             | references    | null: false, foreign_key: true |
 
-belongs_to user table
-has_many purchase_info table
-has_one buying table
+belongs_to :users
+has_many :purchase_infos 
 
-## buying テーブル
+## addresses テーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| zip_code         | string     | null: false |
-| prefecture_id    | integer    | null: false |
-| city             | string     | null: false |
-| address_line     | string     | null: false |
-| building_name    | string     |             |
-| phone_number     | string     | null: false |
-| purchase_info    | references | null: false |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| zip_code         | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| city             | string     | null: false                    |
+| address_line     | string     | null: false                    |
+| building_name    | string     |                                |
+| phone_number     | string     | null: false                    |
+| purchase_info    | references | null: false, foreign_key: true |
 
-belongs_to items table
+belongs_to :purchase_infos
 
-##  purchase_infoテーブル
+##  purchase_infosテーブル
 
-| Column   | Type       | Options     |
-| -------- | ---------- | ----------- |
-| user     | references | null: false |
-| items    | references | null: false |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
-belongs_to user table
-belongs_to items table
+belongs_to :users 
+belongs_to :items 
+has_one :addresses
