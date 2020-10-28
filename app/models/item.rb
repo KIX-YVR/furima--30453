@@ -16,7 +16,6 @@ class Item < ApplicationRecord
         validates :who_pays_delivery_fee
         validates :from_where_to_send
         validates :how_long_does_it_take_to_send
-        validates :price, format: {with: /\A[a-zA-Z0-9]+\z/, message: "無効な文字です"}
         validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "範囲外の数字です"}
         validates :user
         validates :image

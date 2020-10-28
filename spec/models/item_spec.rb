@@ -57,6 +57,21 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
+      it 'priceが300以上でないといけない' do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price 範囲外の数字です")        
+      end
+      it 'priceが9999999以下でないといけない' do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price 範囲外の数字です")        
+      end
+      it 'priceが半角でないといけない' do
+        @item.price = "１０００"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price 範囲外の数字です")        
+      end
     end
   end
 end
