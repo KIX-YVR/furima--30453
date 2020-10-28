@@ -11,11 +11,11 @@ class Item < ApplicationRecord
     with_options presence: true do
         validates :name
         validates :explanation
-        validates :category
-        validates :condition
-        validates :who_pays_delivery_fee
-        validates :from_where_to_send
-        validates :how_long_does_it_take_to_send
+        validates :category_id
+        validates :condition_id
+        validates :who_pays_delivery_fee_id
+        validates :from_where_to_send_id
+        validates :how_long_does_it_take_to_send_id
         validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "範囲外の数字です"}
         validates :user
         validates :image
