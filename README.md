@@ -47,7 +47,7 @@ has_one :purchase_info
 
 belongs_to :purchase_info
 
-##  purchase_infosテーブル
+## purchase_infosテーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
