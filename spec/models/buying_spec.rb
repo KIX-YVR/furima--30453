@@ -6,6 +6,13 @@ RSpec.describe Buying, type: :model do
       @buying = FactoryBot.build(:buying)
     end
 
+    context '商品購入がうまくいく時' do
+      it 'すべての値が正しく入力されていれば保存できること' do
+        expect(@buying).to be_valid
+      end
+    end
+
+    context '商品購入がうまくいかない時' do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@buying).to be_valid
     end
@@ -58,5 +65,6 @@ RSpec.describe Buying, type: :model do
       @buying.valid?
       expect(@buying.errors.full_messages).to include("Token can't be blank")
     end
+  end
   end
 end
