@@ -13,9 +13,6 @@ RSpec.describe Buying, type: :model do
     end
 
     context '商品購入がうまくいかない時' do
-    it 'すべての値が正しく入力されていれば保存できること' do
-      expect(@buying).to be_valid
-    end
     it 'zip_codeが空だと保存できないこと' do
       @buying.zip_code = nil
       @buying.valid?
