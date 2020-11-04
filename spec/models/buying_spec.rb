@@ -10,6 +10,10 @@ RSpec.describe Buying, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@buying).to be_valid
       end
+      it 'building_nameは空でも保存できること' do
+        @buying.building_name = nil
+        expect(@buying).to be_valid
+      end
     end
 
     context '商品購入がうまくいかない時' do
@@ -33,14 +37,10 @@ RSpec.describe Buying, type: :model do
       @buying.valid?
       expect(@buying.errors.full_messages).to include("City can't be blank")
     end
-    it 'address_lineは空でも保存できること' do
+    it 'address_lineは空では保存できない' do
       @buying.address_line = nil
       @buying.valid?
       expect(@buying.errors.full_messages).to include("Address line can't be blank")
-    end
-    it 'building_nameは空でも保存できること' do
-      @buying.building_name = nil
-      expect(@buying).to be_valid
     end
     it 'phone_numberは空では保存できないこと' do
       @buying.phone_number = nil
