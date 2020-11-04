@@ -1,13 +1,17 @@
 class PurchaseController < ApplicationController
   before_action :set_item, only: [:index, :new, :create]
   before_action :item_buying, only: [:index, :new]
+  before_action :authenticate_user!, except: [:new, :create]
 
   def index
+  if current_user == @item.user || @item.purchase_info.present?
+    redirect_to root_path
+  end
 
   end
 
   def new
-    
+
   end
 
   def create

@@ -48,6 +48,11 @@ RSpec.describe Buying, type: :model do
       @buying.valid?
       expect(@buying.errors.full_messages).to include("Phone number is invalid")
     end
+    it 'phone_numberが12桁以上では保存できないこと' do
+      @buying.phone_number = 000000000000
+      @buying.valid?
+      expect(@buying.errors.full_messages).to include("Phone number is invalid")
+    end
     it "tokenが空では登録できないこと" do
       @buying.token = nil
       @buying.valid?
