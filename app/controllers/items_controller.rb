@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    return redirect_to root_path if current_user.id != @item.user_id
   end
 
   def show
