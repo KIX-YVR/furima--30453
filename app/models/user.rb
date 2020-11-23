@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :purchase_infos
   has_many :items
+  has_many :comments
   with_options presence: true do
     validates :nickname
     validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '無効な文字です' }
