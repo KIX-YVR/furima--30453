@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :who_pays_delivery_fee
   belongs_to :user
   has_one :purchase_info
+  has_many :comments
   has_one_attached :image
   with_options presence: true do
     validates :name
