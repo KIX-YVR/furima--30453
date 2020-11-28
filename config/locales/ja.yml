@@ -10,5 +10,13 @@ ja:
       email: メールアドレス
       password: パスワード
       birthday: 誕生日
-     buying:
      item:
+      name: 商品名
+      explanation: 商品説明
+      category_id: カテゴリー
+      condition_id: 状態
+      who_pays_delivery_fee_id: 送料
+      from_where_to_send_id: どこから発送するか
+      how_long_does_it_take_to_send_id: 発送にかかる日程
+      price: 価格
+     address:
