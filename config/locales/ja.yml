@@ -2,21 +2,31 @@ ja:
  activerecord:
    attributes:
      user:
-      nickname: ニックネーム
-      first_name: 名前
-      family_name: 名字
-      first_name_kana: 名前カナ
-      family_name_kana: 名字カナ
-      email: メールアドレス
-      password: パスワード
-      birthday: 誕生日
+       nickname: ニックネーム
+       first_name: 名前
+       family_name: 名字
+       first_name_kana: 名前カナ
+       family_name_kana: 名字カナ
+       email: メールアドレス
+       password: パスワード
+       birthday: 生年月日
      item:
-      name: 商品名
-      explanation: 商品説明
-      category_id: カテゴリー
-      condition_id: 状態
-      who_pays_delivery_fee_id: 送料
-      from_where_to_send_id: どこから発送するか
-      how_long_does_it_take_to_send_id: 発送にかかる日程
-      price: 価格
-     address:
+       name: 商品名
+       explanation: 商品の説明
+       category_id: カテゴリー
+       condition_id: 商品の状態
+       who_pays_delivery_fee_id: 配送料の負担
+       from_where_to_send_id: 発送元の地域
+       how_long_does_it_take_to_send_id: 発送までの日数
+       price: 販売価格
+       image: 出品画像
+ activemodel:
+   attributes:
+     buying:
+       zip_code: 郵便番号
+       prefucture_id: 都道府県
+       city: 市区町村
+       address_line: 番地
+       building_name: 建物名
+       phone_number: 電話番号
+       token: カード情報
