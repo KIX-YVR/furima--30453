@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+
+    @comments = Comment.all
+    @comment = Comment.new
   end
 
   def create
@@ -15,6 +18,11 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+
+    @comment = Comment.new(text: params[:comment][:text])
+    if @comment.save
+      ActionCable.server.broadcast 'comment_channel', content: @comment
     end
   end
 
